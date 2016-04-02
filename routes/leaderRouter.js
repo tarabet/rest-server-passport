@@ -15,7 +15,7 @@ leaderRouter.route('/')
       res.json(leader);
     })
   })
-  .post(Verify.verifyOrdinaryUser, Verify.verifyAdminUser, function(req, res, next){
+  .post(Verify.verifyOrdinaryUser, Verify.verifyAdmin, function(req, res, next){
     Leadership.create(req.body, function(err, leader) {
       if(err) throw err;
       console.log('Leader added');
@@ -24,7 +24,7 @@ leaderRouter.route('/')
       res.end('Added the leader with id: ' + id);
     });
   })
-  .delete(Verify.verifyOrdinaryUser, Verify.verifyAdminUser, function(req, res, next){
+  .delete(Verify.verifyOrdinaryUser, Verify.verifyAdmin, function(req, res, next){
     Leadership.remove({}, function(err, resp) {
       if(err) throw err;
       res.json(resp);
@@ -38,7 +38,7 @@ leaderRouter.route('/:leadId')
       res.json(leader);
     })
   })
-  .put(Verify.verifyOrdinaryUser, Verify.verifyAdminUser, function(req, res, next){
+  .put(Verify.verifyOrdinaryUser, Verify.verifyAdmin, function(req, res, next){
     Leadership.findByIdAndUpdate(req.params.leadId, {
       $set: req.body
     }, {
@@ -48,7 +48,7 @@ leaderRouter.route('/:leadId')
       res.json(leader);
     })
   })
-  .delete(Verify.verifyOrdinaryUser, Verify.verifyAdminUser, function(req, res, next){
+  .delete(Verify.verifyOrdinaryUser, Verify.verifyAdmin, function(req, res, next){
     Leadership.findByIdAndRemove(req.params.leadId, function(err, resp) {
       if(err) throw err;
       res.json(resp);

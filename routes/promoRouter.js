@@ -15,7 +15,7 @@
         res.json(promo);
       })
     })
-    .post(Verify.verifyOrdinaryUser, Verify.verifyAdminUser, function(req, res, next){
+    .post(Verify.verifyOrdinaryUser, Verify.verifyAdmin, function(req, res, next){
       Promotions.create(req.body, function(err, promo) {
         if(err) throw err;
         console.log('Promotion created');
@@ -24,7 +24,7 @@
         res.end('Added the promotion with id: ' + id);
       });
     })
-    .delete(Verify.verifyOrdinaryUser, Verify.verifyAdminUser, function(req, res, next){
+    .delete(Verify.verifyOrdinaryUser, Verify.verifyAdmin, function(req, res, next){
       Promotions.remove({}, function(err, resp) {
         if(err) throw err;
         res.json(resp);
@@ -38,7 +38,7 @@
         res.json(promo);
       })
     })
-    .put(Verify.verifyOrdinaryUser, Verify.verifyAdminUser, function(req, res, next){
+    .put(Verify.verifyOrdinaryUser, Verify.verifyAdmin, function(req, res, next){
       Promotions.findByIdAndUpdate(req.params.promoId, {
         $set: req.body
       }, {
@@ -48,7 +48,7 @@
         res.json(promo);
       })
     })
-    .delete(Verify.verifyOrdinaryUser, Verify.verifyAdminUser, function(req, res, next){
+    .delete(Verify.verifyOrdinaryUser, Verify.verifyAdmin, function(req, res, next){
       Promotions.findByIdAndRemove(req.params.promoId, function(err, resp) {
         if(err) throw err;
         res.json(resp);

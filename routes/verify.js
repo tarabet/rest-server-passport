@@ -29,7 +29,7 @@ exports.verifyOrdinaryUser = function(req, res, next) {
   }
 };
 
-exports.verifyAdminUser = function(req, res, next) {
+exports.verifyAdmin = function(req, res, next) {
   console.log('Req decoded:', req.decoded);
   if(req.decoded._doc.admin) {
     next();
