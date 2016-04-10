@@ -1,0 +1,17 @@
+{"username": "tarabet", "password" : "123456", "firstname" : "Alexander", "lastname" : "Taranenko"}
+
+{
+    "name" : "Uthapizza",
+    "image": "./images/someimage.png",
+    "category" : "Appetizers",
+    "label": "Hot",
+    "price": "45,56",
+    "description": "Test"
+}
+
+Added the dish with id: 5700eb28e89186d40683e5dd
+
+{
+"rating" : "5",
+"comment": "This is the second comment text",
+}
